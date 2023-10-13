@@ -17,5 +17,6 @@ use App\Http\Controllers\ProgrammingCotroller;
 */
 
 Route::get('/Home',[HomeCotroller::class,'index']);
-Route::get('/Education',[EducationCotroller::class,'index']);
-Route::get('/Programming',[ProgrammingCotroller::class,'index']);
+// Route::get('/Education',[EducationCotroller::class,'index']);
+ Route::get('/Programming',[ProgrammingCotroller::class,'index']);
+Route::inertia('/Education', 'Education');
