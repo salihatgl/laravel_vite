@@ -1,8 +1,9 @@
 <template>
-  <header style="list-style-type: none; margin: 0; padding: 20px; overflow: hidden; background-color: #333; position: fixed; top: 0px; width: 100%;">
-    <Link style="margin-right: 20px; text-decoration: none; color: white;" href="\Home">Anasayfa</Link>
-    <Link style="margin-right: 20px; text-decoration: none; color: white;" href="\Education">Okullar</Link>
-    <Link style="margin-right: 20px; text-decoration: none; color: white;" href="\Programming">Programlama Dilleri</Link>
+  <header>
+    <Head title="Okullar" />
+    <Link class="link" :class="{ 'active': $page.url === '/Home' }" href="\Home" replace>Anasayfa</Link>
+    <Link class="link" :class="{ 'active': $page.url === '/Education' }" href="\Education" preserve-scroll replace>Okullar</Link>
+    <Link class="link" :class="{ 'active': $page.url === '/Programming' }" href="\Programming"  replace>Programlama Dilleri</Link>
   </header>
   <h1>Okullar</h1>
   <p>Meram Atatürk MYO</p>
@@ -91,4 +92,5 @@
 <p style="margin-bottom: 400px;">Konya Teknik Üniversitesi</p></template>
 <script setup>
 import { Link } from '@inertiajs/vue3'
+import { Head } from '@inertiajs/vue3'
 </script>
