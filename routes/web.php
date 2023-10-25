@@ -25,3 +25,4 @@ Route::inertia('/Education', 'Education');
 Route::inertia('/visit', 'visit')->name('visit');
 Route::post('/users', 'App\Http\Controllers\KullaniciController@store');
 
+

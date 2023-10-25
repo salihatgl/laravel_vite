@@ -1,29 +1,42 @@
+<script setup>
+import { useForm } from '@inertiajs/vue3'
+import { Head } from '@inertiajs/vue3'
+
+const form = useForm({
+  email: null,
+  first_name: null,
+  last_name: null,
+})
+</script>
+
 <template>
-  <form @submit.prevent="submit">
-    <label for="first_name">First name:</label><br>
-    <input id="first_name" v-model="form.first_name" /><br>
-    <label for="last_name">Last name:</label><br>
-    <input id="last_name" v-model="form.last_name" /><br>
-    <label for="email">Email:</label><br>
-    <input id="email" v-model="form.email" /><br>
-    <button type="submit">Submit</button>
+      <Head title="Form" />
+  <form @submit.prevent="form.transform((data) =>({
+    ...data,
+    first_name: data.first_name.toUpperCase(),  // isim verisinin tün harflerini büyük harf yaparak veri tabanına ekler
+  })).post('/users')">
+    
+    <!-- first_name -->
+    <label for="first_name">First name</label>
+    <input id="first_name" type="text" v-model="form.first_name">
+    <div v-if="form.errors.first_name">{{ form.errors.first_name }}</div>
+    <!-- last_name -->
+    <label for="last_name">last name</label>
+    <input id="last_name" type="text" v-model="form.last_name">
+    <div v-if="form.errors.last_name">{{ form.errors.last_name }}</div>
+    <!-- email -->
+    <label for="email">Email</label>
+    <input id="email" type="text" v-model="form.email">
+    <div v-if="form.errors.email">{{ form.errors.email }}</div>
+    <!-- submit -->
+    <button type="submit" :disabled="form.processing">Save</button>
   </form>
 </template>
 
-<script setup>
-import { reactive } from 'vue'
-import { router } from '@inertiajs/vue3'
 
-const form = reactive({
-  first_name: null,
-  last_name: null,
-  email: null,
-})
 
-function submit() {
-  router.post('/users', form)
-}
-</script>
+
+
 <style>
 form{
   padding: 20px;
