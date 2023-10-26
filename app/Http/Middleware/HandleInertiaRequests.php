@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Kullanici;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -35,9 +36,10 @@ class HandleInertiaRequests extends Middleware
      * @return array
      */
     public function share(Request $request): array
-    {
-        return array_merge(parent::share($request), [
-            //
-        ]);
+    { return array_merge(parent::share($request), [
+        'flash' => [
+            'message' => session('message')
+        ],
+    ]);
     }
 }

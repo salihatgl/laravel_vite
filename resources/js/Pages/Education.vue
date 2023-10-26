@@ -89,8 +89,12 @@
   possimus explicabo, adipisci totam ipsa perferendis sapiente eos animi veritatis vitae dolor aut voluptates deleniti
   impedit distinctio dolorem nostrum? Velit nulla vero quis architecto minus natus consequatur, ex commodi at fugit
   consectetur. Animi blanditiis nostrum odio sequi voluptatum!</p>
+
+ 
 <p style="margin-bottom: 400px;">Konya Teknik Üniversitesi</p></template>
 <script setup>
 import { Link } from '@inertiajs/vue3'
 import { Head } from '@inertiajs/vue3'
+
+
 </script>

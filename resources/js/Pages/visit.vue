@@ -15,7 +15,10 @@ const form = useForm({
     ...data,
     first_name: data.first_name.toUpperCase(),  // isim verisinin tün harflerini büyük harf yaparak veri tabanına ekler
   })).post('/users')">
-    
+    <input type="file" @input="form.avatar = $event.target.files[0]" />
+    <progress v-if="form.progress" :value="form.progress.percentage" max="100">
+      {{ form.progress.percentage }}%
+    </progress>
     <!-- first_name -->
     <label for="first_name">First name</label>
     <input id="first_name" type="text" v-model="form.first_name">
@@ -32,10 +35,6 @@ const form = useForm({
     <button type="submit" :disabled="form.processing">Save</button>
   </form>
 </template>
-
-
-
-
 
 <style>
 form{
