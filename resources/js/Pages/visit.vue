@@ -2,38 +2,49 @@
 import { useForm } from '@inertiajs/vue3'
 import { Head } from '@inertiajs/vue3'
 
-const form = useForm({
-  email: null,
-  first_name: null,
-  last_name: null,
+// const form = useForm({
+//   email: null,
+//   first_name: null,
+//   last_name: null,
+// })
+const form2 = useForm({
+  name: null,
+  avatar: null,
 })
+
+function submit() {
+  form2.post('/users')
+}
 </script>
 
 <template>
-      <Head title="Form" />
+       <Head title="Form" />
   <form @submit.prevent="form.transform((data) =>({
     ...data,
     first_name: data.first_name.toUpperCase(),  // isim verisinin tün harflerini büyük harf yaparak veri tabanına ekler
   })).post('/users')">
-    <input type="file" @input="form.avatar = $event.target.files[0]" />
-    <progress v-if="form.progress" :value="form.progress.percentage" max="100">
-      {{ form.progress.percentage }}%
-    </progress>
-    <!-- first_name -->
+    first_name
     <label for="first_name">First name</label>
     <input id="first_name" type="text" v-model="form.first_name">
     <div v-if="form.errors.first_name">{{ form.errors.first_name }}</div>
-    <!-- last_name -->
+    last_name 
     <label for="last_name">last name</label>
     <input id="last_name" type="text" v-model="form.last_name">
     <div v-if="form.errors.last_name">{{ form.errors.last_name }}</div>
-    <!-- email -->
+    email 
     <label for="email">Email</label>
     <input id="email" type="text" v-model="form.email">
     <div v-if="form.errors.email">{{ form.errors.email }}</div>
-    <!-- submit -->
+    submit 
     <button type="submit" :disabled="form.processing">Save</button>
-  </form>
+  </form> 
+
+  <!-- <form @submit.prevent="submit">
+    <input type="text" v-model="form2.name">
+    <input type="file" @input="form2.avatar = $event.target.files[0]">
+    <progress v-if="form2.progress" :value="form2.progress.percentage" max="100"> {{ form2.progress.percentage }}%</progress>
+    <button type="submit">Submit</button>
+</form> -->
 </template>
 
 <style>
