@@ -92,9 +92,28 @@
 
  
 <p style="margin-bottom: 400px;">Konya Teknik Üniversitesi</p></template>
-<script setup>
+<script setup >
 import { Link } from '@inertiajs/vue3'
 import { Head } from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3'
 
+
+// document.addEventListener('inertia:start' , (event) => {
+//   console.log(`Starting a visit to ${event.detail.visit.url}`)
+// })
+
+// router.on('before' , (event) =>{
+//   if(!confirm('Uzaklaşmak istediğinizden emin misiniz?')){
+//     event.preventDefault()
+//   }
+// })
+
+// router.on('success' , (event) => {
+//   console.log(`success a visit to ${event.detail.page.url}`)
+// })
+router.on('navigate', (event) => {
+  console.log(`Navigated to ${event.detail.page.url}`)
+})
 
 </script>
+

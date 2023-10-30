@@ -2,11 +2,11 @@
 import { useForm } from '@inertiajs/vue3'
 import { Head } from '@inertiajs/vue3'
 
-// const form = useForm({
-//   email: null,
-//   first_name: null,
-//   last_name: null,
-// })
+ const form = useForm({
+   email: null,
+   first_name: null,
+   last_name: null,
+ })
 const form2 = useForm({
   name: null,
   avatar: null,
@@ -14,6 +14,7 @@ const form2 = useForm({
 
 function submit() {
   form2.post('/users')
+  
 }
 </script>
 
