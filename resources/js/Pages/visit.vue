@@ -1,6 +1,8 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3'
 import { Head } from '@inertiajs/vue3'
+import { router } from '@inertiajs/vue3';
+
 
  const form = useForm({
    email: null,
@@ -12,9 +14,14 @@ const form2 = useForm({
   avatar: null,
 })
 
-function submit() {
-  form2.post('/users')
+// function submit() {
+//   form2.post('/users')
   
+// }
+function scroll(){
+  router.visit('/Education', {
+        preserveScroll: false,
+      })
 }
 </script>
 
@@ -24,28 +31,29 @@ function submit() {
     ...data,
     first_name: data.first_name.toUpperCase(),  // isim verisinin tün harflerini büyük harf yaparak veri tabanına ekler
   })).post('/users')">
-    first_name
+    <!-- first_name -->
     <label for="first_name">First name</label>
     <input id="first_name" type="text" v-model="form.first_name">
     <div v-if="form.errors.first_name">{{ form.errors.first_name }}</div>
-    last_name 
+    <!-- last_name  -->
     <label for="last_name">last name</label>
     <input id="last_name" type="text" v-model="form.last_name">
     <div v-if="form.errors.last_name">{{ form.errors.last_name }}</div>
-    email 
+    <!-- email  -->
     <label for="email">Email</label>
     <input id="email" type="text" v-model="form.email">
     <div v-if="form.errors.email">{{ form.errors.email }}</div>
-    submit 
+    <!-- submit  -->
     <button type="submit" :disabled="form.processing">Save</button>
   </form> 
-
+  <button @click="scroll">Visit</button>
   <!-- <form @submit.prevent="submit">
     <input type="text" v-model="form2.name">
     <input type="file" @input="form2.avatar = $event.target.files[0]">
     <progress v-if="form2.progress" :value="form2.progress.percentage" max="100"> {{ form2.progress.percentage }}%</progress>
     <button type="submit">Submit</button>
 </form> -->
+
 </template>
 
 <style>

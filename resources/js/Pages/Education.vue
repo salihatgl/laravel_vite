@@ -1,9 +1,9 @@
 <template>
   <header>
     <Head title="Okullar" />
-    <Link class="link" :class="{ 'active': $page.url === '/Home' }" href="\Home" replace>Anasayfa</Link>
-    <Link class="link" :class="{ 'active': $page.url === '/Education' }" href="\Education" preserve-scroll replace>Okullar</Link>
-    <Link class="link" :class="{ 'active': $page.url === '/Programming' }" href="\Programming"  replace>Programlama Dilleri</Link>
+    <Link class="link" :class="{ 'active': $page.url === '/Home' }" href="\Home"  preserve-scroll>Anasayfa</Link>
+    <Link class="link" :class="{ 'active': $page.url === '/Education' }" href="\Education"  preserve-scroll>Okullar</Link>
+    <Link class="link" :class="{ 'active': $page.url === '/Programming' }" href="\Programming"   replace>Programlama Dilleri</Link>
   </header>
   <h1>Okullar</h1>
   <p>Meram Atatürk MYO</p>
@@ -89,6 +89,7 @@
   possimus explicabo, adipisci totam ipsa perferendis sapiente eos animi veritatis vitae dolor aut voluptates deleniti
   impedit distinctio dolorem nostrum? Velit nulla vero quis architecto minus natus consequatur, ex commodi at fugit
   consectetur. Animi blanditiis nostrum odio sequi voluptatum!</p>
+  <Link   href="\Home" reserve-scroll replace>Okullar</Link>
 
  
 <p style="margin-bottom: 400px;">Konya Teknik Üniversitesi</p></template>

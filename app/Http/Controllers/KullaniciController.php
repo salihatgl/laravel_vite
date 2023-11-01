@@ -11,7 +11,8 @@ class KullaniciController extends Controller
     public function index()
     {
         return Inertia::render('visit', [
-          'users' => Kullanici::all(),
+          'users' => Inertia::lazy(fn () => Kullanici::get()),
+          //'users' => Kullanici::all(),
         ]);
     }
 
