@@ -9,20 +9,20 @@ import { router } from '@inertiajs/vue3';
    first_name: null,
    last_name: null,
  })
-const form2 = useForm({
-  name: null,
-  avatar: null,
-})
+// const form2 = useForm({
+//   name: null,
+//   avatar: null,
+// })
 
 // function submit() {
 //   form2.post('/users')
   
 // }
-function scroll(){
-  router.visit('/Education', {
-        preserveScroll: false,
-      })
-}
+// function scroll(){
+//   router.visit('/Education', {
+//         preserveScroll: false,
+//       })
+// }
 </script>
 
 <template>
@@ -46,7 +46,7 @@ function scroll(){
     <!-- submit  -->
     <button type="submit" :disabled="form.processing">Save</button>
   </form> 
-  <button @click="scroll">Visit</button>
+  <!-- <button @click="scroll">Visit</button> -->
   <!-- <form @submit.prevent="submit">
     <input type="text" v-model="form2.name">
     <input type="file" @input="form2.avatar = $event.target.files[0]">
